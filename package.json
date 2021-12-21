@@ -1,0 +1,29 @@
+{
+  "name": "lustyhotties",
+  "version": "1.1.0",
+  "description": "Serverless webpack example using ecma script",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "sls offline start --httpPort 5001"
+  },
+  "devDependencies": {
+    "serverless": "^2.57.0",
+    "serverless-offline": "^8.2.0"
+  },
+  "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "2.384.0",
+    "bcrypt": "^5.0.1",
+    "busboy": "^0.3.1",
+    "date-fns": "^2.20.2",
+    "dotenv": "^10.0.0",
+    "file-type": "^16.5.3",
+    "jimp": "^0.16.1",
+    "json2csv": "^5.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "mailgun-js": "^0.22.0",
+    "mongoose": "^6.0.2",
+    "uuid": "^8.3.2"
+  }
+}
