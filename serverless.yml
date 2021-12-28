@@ -52,6 +52,10 @@ functions:
           method: GET
           cors: true
 
+custom:
+  serverless-offline:
+    httpPort: 4000
+
 resources:
   Resources:
     GatewayResponseDefault4XX:

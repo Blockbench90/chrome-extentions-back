@@ -45,7 +45,7 @@ module.exports.login = async (event, context) => {
 
 module.exports.registration = async (event, context) => {
     try {
-        const {email, password, nickName} = JSON.parse(event.body);
+        const {email, familyName, givenName, imageUrl, name} = JSON.parse(event.body);
         const isEmailValid = validateEmail(email)
         if (!isEmailValid) {
             return response(400, {error: `Please fill a valid email address`})
@@ -56,13 +56,14 @@ module.exports.registration = async (event, context) => {
         const candidate = await UserModel.findOne({email})
 
         if (candidate) {
-            return response(400, {error: `user with ${email} already exists`})
+            const user = new UserDto(candidate)
+            return response(200, {user: user, token: signToken(email)})
         }
 
-        const userData = await userService.registration({email, password, nickName});
+        const userData = await userService.registration({email, familyName, givenName, imageUrl, name});
         const user = new UserDto(userData)
 
-        return response(200, {data: user})
+        return response(200, {user: user, token: signToken(email)})
     } catch (e) {
         return response(403, {error: e})
     }

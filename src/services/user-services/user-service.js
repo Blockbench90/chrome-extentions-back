@@ -4,10 +4,9 @@ const UserDto = require("../../dtos/user-dto");
 const {response} = require("../../helpers/response");
 
 class UserService {
-    async registration({email, password, nickName}) {
-        const hashPassword = await bcrypt.hash(password, 3);
+    async registration({email, familyName, givenName, imageUrl, name}) {
 
-        const user = await UserModel.create({email, password: hashPassword, nickName})
+        const user = await UserModel.create({email, familyName, givenName, imageUrl, name})
 
         return user
     }
